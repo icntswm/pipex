@@ -12,16 +12,15 @@ OBJS	=	${SRCS:.c=.o}
 NAME	=	pipex
 P_HEAD	=	pipex.h
 
-LB_HEAD	=	libft/libft.h
+LB_HEAD	=	/libft/libft.h
 LB_LBFT	=	libft/libft.a
 
 RM		=	rm -f
 CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror
 
-.c.o:
-			${CC} ${CFLAGS} -c $< -I ${LB_HEAD} -I ${P_HEAD} -o $@
-
+.c.o:		${P_HEAD} ${LB_HEAD}
+			${CC} ${CFLAGS} -c $< -o $@
 
 ${NAME}:	${OBJS}
 			make -C ${LIBFT}
